@@ -1,0 +1,9 @@
+<ngt-ambient-light></ngt-ambient-light>
+<ngt-directional-light [position]="10" castShadow>
+  <ngt-vector2 [attach]="['shadow', 'mapSize']" [vector2]="2048"></ngt-vector2>
+</ngt-directional-light>
+<ngt-physics>
+  <app-floor [position]="[0, -2.5, 0]"></app-floor>
+  <app-box [position]="[0, 10, -3]"></app-box>
+  <app-box [position]="[0, 30, -2]"></app-box>
+</ngt-physics>

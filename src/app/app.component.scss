@@ -1,0 +1,29 @@
+.NavMenu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
+  position: absolute;
+  width: 100%;
+  z-index: 1;
+
+  &-btnContainer {
+    display: flex;
+    gap: 10px;
+  }
+
+
+  button {
+    background: white;
+    padding: 5px;
+    border: 1px solid #80808066;
+    color: #808080fa;
+    border-radius: 5px;
+  }
+
+  button:hover {
+    background: rgba(255, 255, 0, 0.2);
+    transition: all 0.8s;
+    cursor: pointer;
+  }
+}
