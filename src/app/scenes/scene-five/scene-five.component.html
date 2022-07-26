@@ -1,5 +1,6 @@
-<ngt-mesh [position]="[0,0,0]" [rotation]="[0,0,0]">
-  <ngt-plane-geometry [args]="[8, 8]"></ngt-plane-geometry>
-  <ngt-raw-shader-material [parameters]="{vertexShader: vertexShader, fragmentShader: fragmentShader}"></ngt-raw-shader-material>
+<ngt-mesh [position]="[0,0,0]" (beforeRender)="onBeforeRender($event)">
+  <ngt-plane-geometry [args]="[1, 1, 32, 32]"></ngt-plane-geometry>
+  <ngt-raw-shader-material [parameters]="{vertexShader: vertexShader, fragmentShader: fragmentShader, transparent: true, uniforms: uniforms}"></ngt-raw-shader-material>
 </ngt-mesh>
 <ngt-soba-sky></ngt-soba-sky>
+<ngt-soba-orbit-controls></ngt-soba-orbit-controls>
