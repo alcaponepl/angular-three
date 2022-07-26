@@ -1,0 +1,16 @@
+<ngt-ambient-light intensity="0.25"></ngt-ambient-light>
+<ngt-spot-light [position]="[30, 30, 30]" intensity="1" angle="0.2" penumbra="1" castShadow>
+  <ngt-vector2 [attach]="['shadow', 'mapSize']" [vector2]="[512, 512]"></ngt-vector2>
+</ngt-spot-light>
+<ngt-directional-light [position]="[-10, -10, -10]" intensity="5" color="orange"></ngt-directional-light>
+<ngt-physics [gravity]="[0, 2, 0]" iterations="10">
+  <app-pointer></app-pointer>
+  <app-clump></app-clump>
+</ngt-physics>
+<!--<ngt-soba-environment files="assets/adamsbridge.hdr"></ngt-soba-environment>-->
+<!--<ngt-effect-composer>-->
+<!--  <ng-template ngt-effect-composer-content>-->
+<!--    <ngt-bloom-effect></ngt-bloom-effect>-->
+<!--  </ng-template>-->
+<!--</ngt-effect-composer>-->
+<!--<ngt-soba-sky></ngt-soba-sky>-->

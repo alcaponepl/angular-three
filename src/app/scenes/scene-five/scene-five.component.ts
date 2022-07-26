@@ -1,24 +1,31 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-scene-four',
-  templateUrl: './scene-four.component.html',
-  styleUrls: ['./scene-four.component.scss']
+  selector: 'app-scene-five',
+  templateUrl: './scene-five.component.html',
+  styleUrls: ['./scene-five.component.scss']
 })
-export class SceneFourComponent implements OnInit {
+export class SceneFiveComponent implements OnInit {
   vertexShader: string = `
         uniform mat4 projectionMatrix;
         uniform mat4 viewMatrix;
         uniform mat4 modelMatrix;
 
         attribute vec3 position;
+        attribute vec2 uv;
         varying vec4 vPos;
+        varying vec2 vUv;
 
         void main()
         {
 
-            gl_Position = projectionMatrix * viewMatrix * modelMatrix * vec4(position, 1.0);
+            vec4 modelPosition = modelMatrix * vec4(position, 1.0);
+            vec4 viewPosition = viewMatrix * modelPosition;
+            vec4 projectedPosition = projectionMatrix * viewPosition;
+
+            gl_Position = projectedPosition;
             vPos = gl_Position;
+            vUv = uv;
         }
     `;
   fragmentShader: string = `
@@ -28,19 +35,16 @@ export class SceneFourComponent implements OnInit {
         uniform vec2 mouse;
         uniform vec2 resolution;
         varying vec4 vPos;
+        varying vec2 vUv;
 
         void main()
         {
-           vec3 color;
+            float strength = vUv.x;
 
-           if (vPos.y < 0.0)
-               color = vec3(1.0, 0.0, 0.0);
-           else
-              color = vec3(1.0, 1.0, 1.0);
-
-           gl_FragColor = vec4(color, 1.0);
+            gl_FragColor = vec4(vec3(strength), 1.0);
         }
     `;
+
 
   constructor() { }
 

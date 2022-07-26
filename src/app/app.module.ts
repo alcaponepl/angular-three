@@ -10,8 +10,12 @@ import {
   NgtPointLightModule,
   NgtSpotLightModule
 } from "@angular-three/core/lights";
-import { NgtBoxGeometryModule, NgtSphereGeometryModule } from "@angular-three/core/geometries";
-import { NgtMeshBasicMaterialModule, NgtMeshStandardMaterialModule } from "@angular-three/core/materials";
+import { NgtBoxGeometryModule, NgtPlaneGeometryModule, NgtSphereGeometryModule } from "@angular-three/core/geometries";
+import {
+  NgtMeshBasicMaterialModule,
+  NgtMeshStandardMaterialModule, NgtRawShaderMaterialModule,
+  NgtShaderMaterialModule
+} from "@angular-three/core/materials";
 import { NgtStatsModule } from "@angular-three/core/stats";
 import { NgtSobaOrbitControlsModule } from "@angular-three/soba/controls";
 import { CubeComponent } from './components/cube/cube.component';
@@ -23,7 +27,11 @@ import { SceneThreeComponent } from './scenes/scene-three/scene-three.component'
 import { SceneFourComponent } from './scenes/scene-four/scene-four.component';
 import { NgtVector2AttributeModule } from "@angular-three/core/attributes";
 import { NgtSobaEnvironmentModule, NgtSobaSkyModule } from "@angular-three/soba/staging";
-import { NgtEffectComposerModule } from "@angular-three/postprocessing";
+// import { NgtEffectComposerModule } from "@angular-three/postprocessing";
+import { PointerComponent } from './components/pointer/pointer.component';
+import { ClumpComponent } from './components/clump/clump.component';
+import { SceneFiveComponent } from './scenes/scene-five/scene-five.component';
+// import { NgtBloomEffectModule } from "@angular-three/postprocessing/effects";
 
 @NgModule({
   declarations: [
@@ -33,6 +41,9 @@ import { NgtEffectComposerModule } from "@angular-three/postprocessing";
     SceneTwoComponent,
     SceneThreeComponent,
     SceneFourComponent,
+    PointerComponent,
+    ClumpComponent,
+    SceneFiveComponent,
   ],
   imports: [
     BrowserModule,
@@ -51,10 +62,14 @@ import { NgtEffectComposerModule } from "@angular-three/postprocessing";
     NgtDirectionalLightModule,
     NgtVector2AttributeModule,
     NgtSobaEnvironmentModule,
-    NgtEffectComposerModule,
+    // NgtEffectComposerModule,
     NgtSobaSkyModule,
     NgtSphereGeometryModule,
-    NgtInstancedMeshModule
+    NgtInstancedMeshModule,
+    // NgtBloomEffectModule
+    NgtShaderMaterialModule,
+    NgtPlaneGeometryModule,
+    NgtRawShaderMaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]
